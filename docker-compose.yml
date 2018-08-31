@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  web:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/src
+      - ./dokuwiki.conf:/etc/nginx/conf.d/0_site.conf
+    links:
+      - php
+    depends_on:
+      - php
+  php:
+    image: php:7.2-fpm
+    volumes:
+      - ./src:/src
