@@ -2,6 +2,6 @@ version: '2'
 
 services:
   dokuwiki:
-    build: .
+    build: .  # The Dockerfile is in this directory
     ports:
-      - 80
+      - 80  # The default port for apache
