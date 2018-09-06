@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  exampledb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./database:/data/db
+    
+  examplebackend:
+    build: ./backend
+    ports:
+      - 8080:8080
+    depends_on:
+      - exampledb
